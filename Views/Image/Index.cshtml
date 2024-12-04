@@ -1,0 +1,18 @@
+﻿@model IEnumerable<ImageGallery.Data.TblImage>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<<h1>Image Gallery</h1>
+<a asp-action="Create">Upload New Image</a>
+<div>
+    @foreach (var image in Model)
+    {
+        <div>
+            <img src="@image.ImageUrl" alt="@image.Title" style="width:200px;height:auto;" />
+            <p>@image.Title</p>
+            <a asp-action="Delete" asp-route-id="@image.Id">Delete</a>
+        </div>
+    }
+</div>
